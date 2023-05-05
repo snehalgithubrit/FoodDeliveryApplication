@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- fontawesome link here -->
+    <link rel="stylesheet" href="">
+    
+    <!-- style link here -->
+    <link rel="stylesheet" href="orderlist.component.css">
+    <style>
+		body {
+			background: url(/assets/images/background.png);
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		  background-size: 100% 100%;
+		  }
+</style>
+
+</head>
+<body>
+    
+    <header class="header">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="">
+        </div>
+
+        <nav class="navbar">
+            <div class="header-wrap">
+                <form class="form-header" onsubmit="return false;" method="GET">
+                    <input class="au-input au-input-xl" type="text" name="search"
+                        placeholder="Search for customer ..." />
+                    <button class="au-btn-submit" type="submit">
+                        Search
+                    </button>
+                </form>
+            
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Menu</a>
+                    <a href="orderform">Order now</a>
+                    <a href="#">Logout</a>
+                
+        </div>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-bar" class="fas fa-bars"></div>
+            <a class="contact-btn" href="#">Contact</a>
+        </div>
+
+    </header>
+<br>
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+           <br>
+           <br>
+            <div class="row">
+              <table class='table'>
+                <thead>
+                    <tr class='table-dark'>
+                        <th  style="color: chartreuse;">id</th>
+                        <th  style="color: chartreuse;">Name</th>
+                        <th  style="color: chartreuse;">phonenumber</th>
+                        <th  style="color: chartreuse;">email</th>
+                        <th  style="color: chartreuse;">address</th>
+                    </tr>
+            
+                </thead>
+                <tr >
+                    <td  style="color: chartreuse;">101</td>
+                    <td  style="color: chartreuse;">Pooja</td>
+                    <td  style="color: chartreuse;">9881456025</td>
+                    <td  style="color: chartreuse;">pooja@gmail.com</td>
+                    <td  style="color: chartreuse;">satara</td>
+
+                </tr>
+                <tr *ngFor="let tempCustomer of customer">
+                    <td  style="color: chartreuse;">{{tempCustomer.id}}</td>
+                    <td  style="color: chartreuse;">{{tempCustomer.name}}</td>
+                    <td  style="color: chartreuse;">{{tempCustomer.phonenumber}}</td>
+                    <td  style="color: chartreuse;">{{tempCustomer.email}}</td>
+                    <td  style="color: chartreuse;">{{tempCustomer.address}}</td>
+                    <button type="button" class="btn btn-md btn-success" (click)="updateOrder(tempCustomer.id)">Update</button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-md btn-danger" (click) = "deleteOrder(tempCustomer.id)">Delete </button>
+                </tr>
+            </table>
+            </div>
+            <button class="atu-btn-submit btn btn-info" (click) = "addCustomer()" >Add My Order</button>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
